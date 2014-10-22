@@ -11,5 +11,13 @@
 
     <artifactId>moduleMain</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.whimsycwd</groupId>
+            <artifactId>mavenDemo-moduleA</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
