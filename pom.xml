@@ -65,10 +65,14 @@
             <artifactId>jetty-maven-plugin</artifactId>
             <version>8.1.16.v20140903</version>
         </dependency>
+
+        <!-- 依赖是怎么解析的？？明明在cobertura-it-plugin里面已经有了 TODO: WTF -->
         <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <version>2.2</version></dependency>
+            <groupId>net.sourceforge.cobertura</groupId>
+            <artifactId>cobertura</artifactId>
+            <version>1.9.4.1</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
