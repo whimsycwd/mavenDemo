@@ -34,6 +34,58 @@
 
             </build>
         </profile>
+        <profile>
+
+            <id>report</id>
+
+            <build>
+                <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-it-maven-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <formats>
+                            <format>xml</format>
+                        </formats>
+                        <check>
+                            <haltOnFailure>false</haltOnFailure>
+                        </check>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>cobertura-clean</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>cobertura-instrument</id>
+                            <phase>process-classes</phase>
+                            <goals>
+                                <goal>instrument</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>cobertura-check-only</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>check-only</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>cobertura-report-only</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>report-only</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
 

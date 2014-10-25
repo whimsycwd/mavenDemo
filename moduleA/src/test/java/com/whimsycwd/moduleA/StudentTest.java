@@ -10,9 +10,11 @@ import org.testng.annotations.Test;
 @Test
 public class StudentTest {
 
-    @Test(enabled = false)
+    @Test
     void bla() {
         Student student = new Student(1, "first");
+        student.setId(1);
+        student.setName("first");
         Assert.assertEquals(student.getId(), 1);
         Assert.assertEquals(student.getName(), "first");
     }

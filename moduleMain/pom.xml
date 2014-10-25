@@ -33,7 +33,7 @@
 
 
         <profile>
-            <id>it-coverage</id>
+            <id>report</id>
 
             <build>
                 <plugins>
