@@ -13,13 +13,14 @@
     <profiles>
         <profile>
             <id>jenkins</id>
-            <activation>
+        <!--    <activation>
                 <property>
                     <name>
                         cobertura-report
                     </name>
                 </property>
             </activation>
+            -->
             <build>
                 <pluginManagement>
                     <plugins>
