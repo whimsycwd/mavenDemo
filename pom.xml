@@ -71,6 +71,33 @@
             <version>2.2</version></dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>cb_local_repo</id>
+            <name>cb local repo</name>
+            <url>http://cq01-sdcrd-cbstat02.cq01.baidu.com:8999/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>cb_local_plugin_repo</id>
+            <name>cb local plugin repo</name>
+            <url>http://cq01-sdcrd-cbstat02.cq01.baidu.com:8999/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 
 

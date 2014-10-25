@@ -20,7 +20,7 @@
                     <name>cobertura-report</name>
                 </property>
             </activation>
-            -->
+        -->
             <build>
                 <plugins>
                     <plugin>
@@ -30,7 +30,118 @@
                 </plugins>
             </build>
         </profile>
+
+
+        <profile>
+            <id>it-coverage</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>unpack-dependencies-src</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>unpack-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>sources</classifier>
+                                    <includeGroupIds>com.whimsycwd</includeGroupIds>
+                                    <outputDirectory>${project.build.directory}/generated-sources/it-dependencies</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>add-it-dep-source</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>add-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>${project.build.directory}/generated-sources/it-dependencies</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-it-maven-plugin</artifactId>
+                        <version>2.6</version>
+                        <configuration>
+                            <formats>
+                                <format>xml</format>
+                            </formats>
+                            <check>
+                                <haltOnFailure>false</haltOnFailure>
+                            </check>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>cobertura-clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>cobertura-instrument</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>instrument</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>cobertura-check-only</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check-only</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-it-maven-plugin</artifactId>
+                        <version>2.6</version>
+                        <configuration>
+                            <formats>
+                                <format>html</format>
+                                <format>xml</format>
+                            </formats>
+                        </configuration>
+                        <reportSets>
+                            <reportSet>
+                                <reports>
+                                    <report>report-only</report>
+                                </reports>
+                            </reportSet>
+                        </reportSets>
+                    </plugin>
+                </plugins>
+            </reporting>
+
+        </profile>
     </profiles>
+
+
+
 
 
     <dependencies>
