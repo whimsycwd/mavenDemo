@@ -11,8 +11,4 @@ public class Main {
         return String.format("%d %s\n", id, name);
     }
 
-    public static void main(String[] args) {
-        Student s = new Student();
-    }
-
 }
