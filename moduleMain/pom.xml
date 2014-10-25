@@ -47,8 +47,11 @@
                                     <goal>unpack-dependencies</goal>
                                 </goals>
                                 <configuration>
+                                    <!--
                                     <classifier>sources</classifier>
+                                    -->
                                     <includeGroupIds>com.whimsycwd</includeGroupIds>
+
                                     <outputDirectory>${project.build.directory}/generated-sources/it-dependencies</outputDirectory>
                                 </configuration>
                             </execution>
