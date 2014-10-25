@@ -10,4 +10,9 @@ public class Main {
     public static String format(int id, String name) {
         return String.format("%d %s\n", id, name);
     }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+    }
+
 }

@@ -1,7 +1,9 @@
-package com.whimsycwd.moduleA;
+package com.whimsycwd.main;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.whimsycwd.moduleA.Student;
 
 /**
  * Created by whimsy on 10/21/14.
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
 @Test
 public class StudentTest {
 
-    @Test(enabled = false)
+    @Test
     void bla() {
         Student student = new Student(1, "first");
         Assert.assertEquals(student.getId(), 1);
